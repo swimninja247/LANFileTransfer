@@ -1,1 +1,3 @@
-/ProofOfConcept/uploads_folder/
+/ProofOfConcept/uploads/*
+/ProofOfConcept/uploads/
+/.idea/
