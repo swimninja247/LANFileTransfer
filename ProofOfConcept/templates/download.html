@@ -1,0 +1,35 @@
+<!doctype html>
+<title>File Downloader</title>
+<style>
+    body,
+    .center {
+        margin: auto;
+        width: 50%;
+        border: 3px solid green;
+        padding: 10px;
+    }
+</style>
+<body>
+
+{% block content %}
+<h1 class="title">
+    LAN File Download
+</h1>
+<h2 class="subtitle">
+    Easy file download from my laptop to any web-browsing device.
+</h2>
+{% endblock %}
+
+    <p>
+        {% with files = get_files_from_upload_folder() %} {% if files %}
+        <ul class=files>
+            {% for file in files %}
+                {% with filename = get_file_basename(file) %}
+                <li><a href="{{ url_for('download_file', filename=filename) }}">{{ filename }}</a></li>
+                {% endwith %}
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+    </p>
+
+</body>
