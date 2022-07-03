@@ -64,11 +64,12 @@ def upload_file():
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        flash('File(s) uploaded')
+                file.close()
+                flash('{} uploaded'.format(filename))
     return redirect('/upload')
   
 
 if __name__ == "__main__":
     print('To upload files navigate to http://127.0.0.1:4000/upload')
     print('To download files navigate to http://127.0.0.1:4000/download')
-    app.run(host='127.0.0.1', port=4000, debug=True, threaded=True)
+    app.run(host='0.0.0.0', port=4000, debug=True, threaded=True)
