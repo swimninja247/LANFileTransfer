@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<style>
+    body {
+        margin: auto;
+        width: 50%;
+        border: 3px solid green;
+        padding: 10px;
+    }
+</style>
+
+<body>
+
+<h1 class="title">
+    {% block header %} {% endblock %}
+</h1>
+<h2 class="subtitle">
+    {% block subtitle %} {% endblock %}
+</h2>
+
+{% block content %} {% endblock %}
+
+</body>
+</html>

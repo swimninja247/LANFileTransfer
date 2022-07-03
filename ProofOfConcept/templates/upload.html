@@ -1,24 +1,12 @@
-<!doctype html>
-<title>File Uploader</title>
-<style>
-    body,
-    .center {
-        margin: auto;
-        width: 50%;
-        border: 3px solid green;
-        padding: 10px;
-    }
-</style>
-<body>
- 
+{% extends 'base.html' %}
+
+{% block title %}File Uploader{% endblock %}
+
+{% block header %}LAN File Upload{% endblock %}
+
+{% block subtitle %}Choose a file to upload to your computer{% endblock %}
+
 {% block content %}
-<h1 class="title">
-    LAN File Upload
-</h1>
-<h2 class="subtitle">
-    Easy file upload to my laptop from any web-browsing device.
-</h2> 
-{% endblock %}
     
     <p>
         {% with messages = get_flashed_messages() %} {% if messages %}
@@ -28,19 +16,12 @@
             {% endfor %}
         </ul>
         {% endif %} {% endwith %}
-    </p>
 
-<form method="post" action="/upload" enctype="multipart/form-data">
+    <form method="post" action="/upload" enctype="multipart/form-data">
 
         <div class="box__input">
-            <dl>
-                <p>
-                    <input type="file" name="files[]" multiple="true" autocomplete="off" required>
-                </p>
-            </dl>
-            <p>
-                <input type="submit" value="Submit">
-            </p>
+            <input type="file" name="files[]" multiple="true" autocomplete="off" required>
+            <p><input type="submit" value="Submit">
         </div>
 </form>
-</body>
+{% endblock %}

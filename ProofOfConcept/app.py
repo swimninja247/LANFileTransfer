@@ -1,11 +1,8 @@
-import sys
-import os
-import re
 import os
 
 from flask import Flask, flash, request, redirect, render_template, send_from_directory, current_app
 from werkzeug.utils import secure_filename
-from config import *
+from config import extensions, upload_dest, file_mb_max, app_key
 
 app = Flask(__name__)
 app.secret_key = app_key

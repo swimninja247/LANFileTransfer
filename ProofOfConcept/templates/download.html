@@ -1,25 +1,12 @@
-<!doctype html>
-<title>File Downloader</title>
-<style>
-    body,
-    .center {
-        margin: auto;
-        width: 50%;
-        border: 3px solid green;
-        padding: 10px;
-    }
-</style>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}File Downloader{% endblock %}
+
+{% block header %}LAN File Download{% endblock %}
+
+{% block subtitle %}Pick a file below to download{% endblock %}
 
 {% block content %}
-<h1 class="title">
-    LAN File Download
-</h1>
-<h2 class="subtitle">
-    Easy file download from my laptop to any web-browsing device.
-</h2>
-{% endblock %}
-
     <p>
         {% with files = get_files_from_upload_folder() %} {% if files %}
         <ul class=files>
@@ -30,6 +17,4 @@
             {% endfor %}
         </ul>
         {% endif %} {% endwith %}
-    </p>
-
-</body>
+{% endblock %}
